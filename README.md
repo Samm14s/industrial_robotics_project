@@ -25,7 +25,7 @@ The objective of this project is to make the Franka robot execute a pre-defined 
 
         planned.csv
 
-        compare_trajectories.m per il confronto grafico delle traiettorie
+        compare_trajectories.m 
 ---
 ## Dipendencies
 
