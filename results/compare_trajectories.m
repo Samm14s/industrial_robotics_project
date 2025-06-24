@@ -74,7 +74,7 @@ function [time_fine, joint_pos_interp, joint_vel_interp, eef_pos_interp, eef_qua
 end
 
 % === Processa desired.csv ===
-[time_fine_des, joint_pos_des, joint_vel_des, eef_pos_des, quat_des, eul_des] = process_csv('planned.csv', num_joints);
+[time_fine_des, joint_pos_des, joint_vel_des, eef_pos_des, quat_des, eul_des] = process_csv('desired.csv', num_joints);
 % === Processa executed.csv ===
 [time_fine_exe, joint_pos_exe, joint_vel_exe, eef_pos_exe, quat_exe, eul_exe] = process_csv('executed.csv', num_joints);
 
