@@ -1,4 +1,4 @@
-# panda_motion_planning
+# Executing a Trajectory with the Franka Robot in Gazebo
 
 Progetto di **robotica industriale** sviluppato con **ROS Noetic** e **MoveIt**, per la pianificazione ed esecuzione di traiettorie cartesiane e la registrazione di dati del robot **Franka Emika Panda** in ambiente simulato.
 
