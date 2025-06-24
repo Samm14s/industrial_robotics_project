@@ -7,11 +7,11 @@ The objective of this project is to make the Franka robot execute a pre-defined 
 
     📁 src/ — C++ nodes:
 
-        circle_motion.cpp → Plan and execute the trajectory
+        circle_motion.cpp
 
-        EE_Recorder_Node.cpp → registrazione della posizione dell’end-effector su rosbag
+        EE_Recorder_Node.cpp
 
-        rosbag_to_csv_executed.cpp → Convert rosbag data in .CSV
+        rosbag_to_csv_executed.cpp
 
     📁 msg/ — Custom messages:
 
@@ -60,7 +60,7 @@ To execute the project:
 Clone repository in your ROS workspace:
 ```bash
 cd ~/ws_moveit/src
-git clone https://github.com/Samm14s/panda_motion_planning.git
+git clone https://github.com/Samm14s/Industrial_Robotics_Project.git
 ```
 Compile:
 ```bash
