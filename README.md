@@ -2,7 +2,6 @@
 
 Progetto di robotica industriale sviluppato con ROS Noetic e MoveIt, per la pianificazione ed esecuzione di traiettorie cartesiane e la registrazione dei dati del robot Franka Emika Panda in ambiente simulato.
 
----
 
 ## 📦 Contenuto del pacchetto
 
@@ -57,36 +56,37 @@ Per eseguire il progetto sono richiesti:
         message_generation
 
 ## 📥 Installazione MoveIt (se necessario)
-
+```bash
 sudo apt install ros-noetic-moveit
-
+```
 ## 🛠️ Installazione e build
 
 Clona il repository nel tuo workspace ROS:
-
+```bash
 cd ~/ws_moveit/src
 git clone https://github.com/Samm14s/panda_motion_planning.git
-
+```
 Compila il workspace:
-
+```bash
 cd ~/ws_moveit
 catkin_make
-
+```
 Attiva l’ambiente ROS per il workspace:
-
+```bash
 source ~/ws_moveit/devel/setup.bash
-
+```
 ## 🚀 Esecuzione
 
 Dopo aver compilato e attivato il workspace, puoi eseguire i nodi del pacchetto:
 Per pianificare ed eseguire la traiettoria circolare:
-
+```bash
 rosrun panda_motion_planning circle_motion
-
+```
 Per registrare la posizione dell’end-effector su rosbag:
-
+```bash
 rosrun panda_motion_planning EE_Recorder_Node
-
+```
 Per convertire i dati rosbag in CSV:
-
+```bash
 rosrun panda_motion_planning rosbag_to_csv_executed
+```
