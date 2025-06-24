@@ -42,7 +42,7 @@ Per eseguire il progetto sono richiesti:
 ```bash
 sudo apt install ros-noetic-moveit
 ---
-### 🛠️ Installazione e build
+🛠️ Installazione e build
 
     Clona il repository nel tuo workspace ROS:
 
@@ -57,8 +57,8 @@ catkin_make
     Attiva l’ambiente ROS per il workspace:
 
 source devel/setup.bash
----
-### 🚀 Esecuzione
+
+🚀 Esecuzione
 
 Dopo aver compilato e attivato il workspace, puoi eseguire i nodi del pacchetto:
 
