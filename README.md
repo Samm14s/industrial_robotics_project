@@ -77,6 +77,7 @@ After the installation and build you can execute in this order:
 
 To plan and execute the trajectory:
 ```bash
+roslaunch panda_moveit_config demo_gazebo.launch
 rosrun panda_motion_planning circle_motion
 ```
 Per registrare la posizione dell’end-effector su rosbag:
