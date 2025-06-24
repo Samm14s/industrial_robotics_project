@@ -39,20 +39,20 @@ Per eseguire il progetto sono richiesti:
 
 ### 🛠️ Installazione e build
 
-    Clona il repository nel tuo workspace ROS:
+Clona il repository nel tuo workspace ROS:
 
+```bash
 cd ~/ws_moveit/src
 git clone https://github.com/Samm14s/panda_motion_planning.git
 
-    Compila il workspace:
+Attiva l’ambiente ROS per il workspace:
+
+source ~/ws_moveit/devel/setup.bash
+
+Compila il workspace:
 
 cd ~/ws_moveit
 catkin_make
-
-    Attiva l’ambiente ROS per il workspace:
-
-source devel/setup.bash
-
 ---
 ## 🚀 Esecuzione
 
