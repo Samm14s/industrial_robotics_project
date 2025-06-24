@@ -82,8 +82,9 @@ rosrun panda_motion_planning circle_motion
 Per registrare la posizione dell’end-effector su rosbag:
 ```bash
 rosrun panda_motion_planning EE_Recorder_Node
+rosbag record -O executed.bag /joint_states_with_pose
 ```
 Per convertire i dati rosbag in CSV:
 ```bash
-rosrun panda_motion_planning rosbag_to_csv_executed
+rosrun panda_motion_planning rosbag_to_csv_executed executed.bag
 ```
