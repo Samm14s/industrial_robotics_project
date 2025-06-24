@@ -37,12 +37,7 @@ Per eseguire il progetto sono richiesti:
   - `moveit_ros_planning`
   - `message_generation`
 
-### 📥 Installazione MoveIt (se necessario)
-
-```bash
-sudo apt install ros-noetic-moveit
----
-🛠️ Installazione e build
+### 🛠️ Installazione e build
 
     Clona il repository nel tuo workspace ROS:
 
@@ -57,8 +52,8 @@ catkin_make
     Attiva l’ambiente ROS per il workspace:
 
 source devel/setup.bash
-
-🚀 Esecuzione
+---
+## 🚀 Esecuzione
 
 Dopo aver compilato e attivato il workspace, puoi eseguire i nodi del pacchetto:
 
@@ -73,3 +68,4 @@ rosrun panda_motion_planning EE_Recorder_Node
     Per convertire i dati rosbag in CSV:
 
 rosrun panda_motion_planning rosbag_to_csv_executed
+---
