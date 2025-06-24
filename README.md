@@ -41,3 +41,34 @@ Per eseguire il progetto sono richiesti:
 
 ```bash
 sudo apt install ros-noetic-moveit
+🛠️ Installazione e build
+
+    Clona il repository nel tuo workspace ROS:
+
+cd ~/ws_moveit/src
+git clone https://github.com/Samm14s/panda_motion_planning.git
+
+    Compila il workspace:
+
+cd ~/ws_moveit
+catkin_make
+
+    Attiva l’ambiente ROS per il workspace:
+
+source devel/setup.bash
+
+🚀 Esecuzione
+
+Dopo aver compilato e attivato il workspace, puoi eseguire i nodi del pacchetto:
+
+    Per pianificare ed eseguire la traiettoria circolare:
+
+rosrun panda_motion_planning circle_motion
+
+    Per registrare la posizione dell’end-effector su rosbag:
+
+rosrun panda_motion_planning EE_Recorder_Node
+
+    Per convertire i dati rosbag in CSV:
+
+rosrun panda_motion_planning rosbag_to_csv_executed
