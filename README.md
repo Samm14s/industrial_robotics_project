@@ -27,15 +27,15 @@ The objective of this project is to make the Franka robot execute a pre-defined 
 
         compare_trajectories.m per il confronto grafico delle traiettorie
 ---
-## 📋 Dipendenze
+## 📋 Dipendencies
 
-Per eseguire il progetto sono richiesti:
+To execute the project:
 
     ROS Noetic
 
     MoveIt
 
-    Pacchetti ROS:
+    ROS Packets:
 
         roscpp
 
@@ -55,30 +55,27 @@ Per eseguire il progetto sono richiesti:
 
         message_generation
 
-## 📥 Installazione MoveIt (se necessario)
-```bash
-sudo apt install ros-noetic-moveit
-```
-## 🛠️ Installazione e build
+## 🛠️ Installation and Build
 
-Clona il repository nel tuo workspace ROS:
+Clone repository in your ROS workspace:
 ```bash
 cd ~/ws_moveit/src
 git clone https://github.com/Samm14s/panda_motion_planning.git
 ```
-Compila il workspace:
+Compile:
 ```bash
 cd ~/ws_moveit
 catkin_make
 ```
-Attiva l’ambiente ROS per il workspace:
+Activate ROS ambient for the workspace:
 ```bash
 source ~/ws_moveit/devel/setup.bash
 ```
-## 🚀 Esecuzione
+## 🚀 Execution
 
-Dopo aver compilato e attivato il workspace, puoi eseguire i nodi del pacchetto:
-Per pianificare ed eseguire la traiettoria circolare:
+After the installation and build you can execute in this order:
+
+To plan and execute the trajectory:
 ```bash
 rosrun panda_motion_planning circle_motion
 ```
