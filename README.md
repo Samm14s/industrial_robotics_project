@@ -52,6 +52,7 @@ catkin_make
     Attiva l’ambiente ROS per il workspace:
 
 source devel/setup.bash
+
 ---
 ## 🚀 Esecuzione
 
