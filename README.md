@@ -62,17 +62,17 @@ source ~/ws_moveit/devel/setup.bash
 
 After the installation and build you can execute in this order:
 
-To plan and execute the trajectory:
+To plan and simulate the trajectory:
 ```bash
 roslaunch panda_moveit_config demo_gazebo.launch
 rosrun panda_motion_planning circle_motion
 ```
-Per registrare la posizione dell’end-effector su rosbag:
+To record data in a .bag file:
 ```bash
 rosrun panda_motion_planning EE_Recorder_Node
 rosbag record -O executed.bag /joint_states_with_pose
 ```
-Per convertire i dati rosbag in CSV:
+To convert data from .bag to .csv:
 ```bash
 rosrun panda_motion_planning rosbag_to_csv_executed executed.bag
 ```
