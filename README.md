@@ -3,23 +3,23 @@
 The objective of this project is to make the Franka robot execute a pre-defined trajetcory in the Gazebo simulation environment. The project involves creating the trajectory, executing it using ROS (Robot Operating System) with a suitable controller, collecting data from the robot's execution and analyzing the results by comparing the desired trajectory with the executed one.
 
 
-## 📦 Contenuto del pacchetto
+## 📦 Code Structure
 
-    📁 src/ — Nodi C++ per:
+    📁 src/ — C++ nodes:
 
-        circle_motion.cpp → pianificazione ed esecuzione di traiettorie circolari
+        circle_motion.cpp → Plan and execute the trajectory
 
         EE_Recorder_Node.cpp → registrazione della posizione dell’end-effector su rosbag
 
-        rosbag_to_csv_executed.cpp → conversione dei dati rosbag in CSV
+        rosbag_to_csv_executed.cpp → Convert rosbag data in .CSV
 
-    📁 msg/ — Messaggi custom:
+    📁 msg/ — Custom messages:
 
         JointStateWithPose.msg
 
         TrajectoryPointStamped.msg
 
-    📁 results/ — Dati raccolti e script MATLAB:
+    📁 results/ — Data analysis and comparison:
 
         executed.csv
 
