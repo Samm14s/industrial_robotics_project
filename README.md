@@ -37,7 +37,7 @@ Per eseguire il progetto sono richiesti:
   - `moveit_ros_planning`
   - `message_generation`
 
-### 🛠️ Installazione e build
+## 🛠️ Installazione e build
 
 Clona il repository nel tuo workspace ROS:
 
@@ -54,7 +54,8 @@ Compila il workspace:
 cd ~/ws_moveit
 catkin_make
 ```
-🚀 Esecuzione
+---
+## 🚀 Esecuzione
 
 Dopo aver compilato e attivato il workspace, puoi eseguire i nodi del pacchetto:
 
@@ -70,3 +71,4 @@ Per convertire i dati rosbag in CSV:
 ```bash
 rosrun panda_motion_planning rosbag_to_csv_executed
 ```
+---
