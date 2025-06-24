@@ -1,6 +1,6 @@
 # Executing a Trajectory with the Franka Robot in Gazebo
 
-Progetto di **robotica industriale** sviluppato con **ROS Noetic** e **MoveIt**, per la pianificazione ed esecuzione di traiettorie cartesiane e la registrazione di dati del robot **Franka Emika Panda** in ambiente simulato.
+The objective of this project is to make the Franka robot execute a pre-defined trajetcory in the Gazebo simulation environment. The project involves creating the trajectory, executing it using ROS (Robotic Operating System) with a suitable controller, collecting data from the robot's execution and analyzing the results by comparing the desired tarjectroy with the executed one.
 
 ---
 
