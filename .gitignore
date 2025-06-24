@@ -1,0 +1,17 @@
+# build e devel di catkin
+build/
+devel/
+
+# log ros
+*.log
+
+# file temporanei editor
+*.swp
+*.swo
+*.~ 
+
+# file di backup
+*~
+
+# eventuali csv o result generati se non vuoi salvarli in repo
+result/*.csv
