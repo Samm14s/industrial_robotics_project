@@ -47,7 +47,7 @@ To be correctly executed the project requires:
 
 ## Installation and Build
 
-Clone repository in your ROS workspace:
+Clone repository in your ROS workspace which includes MoveIt:
 ```bash
 cd ~/ws_moveit/src
 git clone https://github.com/Samm14s/Industrial_Robotics_Project.git
