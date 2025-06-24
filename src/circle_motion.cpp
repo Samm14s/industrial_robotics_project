@@ -110,7 +110,7 @@ int main(int argc, char** argv){
   double fraction = move_group.computeCartesianPath(waypoints, eef_step, circ_traj);
   ROS_INFO("Circular path planned: %.2f%%", fraction * 100.0);
 
-  string path = ros::package::getPath("panda_motion_planning") + "/result/planned.csv";
+  string path = ros::package::getPath("panda_motion_planning") + "/result/desired.csv";
   ROS_INFO_STREAM("Scrivo il CSV in: " << path);  
   ofstream csv_file(path);
   if(!csv_file.is_open()){
