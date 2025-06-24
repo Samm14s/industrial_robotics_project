@@ -52,13 +52,10 @@ Clone repository in your ROS workspace which includes MoveIt:
 cd ~/ws_moveit/src
 git clone https://github.com/Samm14s/Industrial_Robotics_Project.git
 ```
-Compile:
+Compile and source:
 ```bash
 cd ~/ws_moveit
 catkin_make
-```
-Activate ROS ambient for the workspace:
-```bash
 source ~/ws_moveit/devel/setup.bash
 ```
 ## Execution
