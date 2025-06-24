@@ -29,31 +29,12 @@ The objective of this project is to make the Franka robot execute a pre-defined 
 ---
 ## Dipendencies
 
-To execute the project:
+To be correctly executed the project requires:
 
-    ROS Noetic
+    ROS Noetic with ROS Packets: roscpp, std_msgs, geometry_msgs, sensor_msgs, rosbag, tf, moveit_ros_planning_interface, moveit_ros_planning, message_generation
 
     MoveIt
 
-    ROS Packets:
-
-        roscpp
-
-        std_msgs
-
-        geometry_msgs
-
-        sensor_msgs
-
-        rosbag
-
-        tf
-
-        moveit_ros_planning_interface
-
-        moveit_ros_planning
-
-        message_generation
 
 ## Installation and Build
 
