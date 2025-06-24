@@ -3,7 +3,7 @@
 The objective of this project is to make the Franka robot execute a pre-defined trajectory in the Gazebo simulation environment. The project involves creating the trajectory, executing it using ROS (Robot Operating System) with a suitable controller, collecting data from the robot's execution and analyzing the results by comparing the desired trajectory with the executed one.
 
 
-## 📦 Code Structure
+## Code Structure
 
     📁 src/ — C++ nodes:
 
@@ -27,7 +27,7 @@ The objective of this project is to make the Franka robot execute a pre-defined 
 
         compare_trajectories.m per il confronto grafico delle traiettorie
 ---
-## 📋 Dipendencies
+## Dipendencies
 
 To execute the project:
 
@@ -55,7 +55,7 @@ To execute the project:
 
         message_generation
 
-## 🛠️ Installation and Build
+## Installation and Build
 
 Clone repository in your ROS workspace:
 ```bash
@@ -71,7 +71,7 @@ Activate ROS ambient for the workspace:
 ```bash
 source ~/ws_moveit/devel/setup.bash
 ```
-## 🚀 Execution
+## Execution
 
 After the installation and build you can execute in this order:
 
