@@ -59,15 +59,15 @@ source devel/setup.bash
 Dopo aver compilato e attivato il workspace, puoi eseguire i nodi del pacchetto:
 
 Per pianificare ed eseguire la traiettoria circolare:
-
+```bash
   rosrun panda_motion_planning circle_motion
 
 Per registrare la posizione dell’end-effector su rosbag:
-
+```bash
   rosrun panda_motion_planning EE_Recorder_Node
 
 Per convertire i dati rosbag in CSV:
-
+```bash
   rosrun panda_motion_planning rosbag_to_csv_executed
 
 ---
