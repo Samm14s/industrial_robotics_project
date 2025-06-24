@@ -44,6 +44,5 @@ Clona il repository nel tuo workspace ROS:
 ```bash
 cd ~/ws_moveit/src
 git clone https://github.com/Samm14s/panda_motion_planning.git
-
-```bash
+```
 source ~/ws_moveit/devel/setup.bash
