@@ -43,6 +43,7 @@ To be correctly executed the project requires:
         message_generation
 
     - MoveIt
+    - Gazebo 11
 
 
 ## Installation and Build
