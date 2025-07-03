@@ -135,32 +135,3 @@ xlabel('Time [s]');
 ylabel('Degrees');
 legend({'Yaw (Z)','Pitch (Y)','Roll (X)'});
 xlim([t_start t_end]);
-
-figure('Name','Quaternion Components');
-subplot(2,2,1);
-plot(time_fine_des, quat_des(:,1), '--', 'DisplayName','des');
-hold on;
-plot(time_fine_exe, quat_exe(:,1), '-', 'DisplayName','exe');
-title('q_x'); xlabel('Time [s]'); ylabel('Component');
-legend; grid on;
-
-subplot(2,2,2);
-plot(time_fine_des, quat_des(:,2), '--', 'DisplayName','des');
-hold on;
-plot(time_fine_exe, quat_exe(:,2), '-', 'DisplayName','exe');
-title('q_y'); xlabel('Time [s]'); ylabel('Component');
-legend; grid on;
-
-subplot(2,2,3);
-plot(time_fine_des, quat_des(:,3), '--', 'DisplayName','des');
-hold on;
-plot(time_fine_exe, quat_exe(:,3), '-', 'DisplayName','exe');
-title('q_z'); xlabel('Time [s]'); ylabel('Component');
-legend; grid on;
-
-subplot(2,2,4);
-plot(time_fine_des, quat_des(:,4), '--', 'DisplayName','des');
-hold on;
-plot(time_fine_exe, quat_exe(:,4), '-', 'DisplayName','exe');
-title('q_w'); xlabel('Time [s]'); ylabel('Component');
-legend; grid on;
