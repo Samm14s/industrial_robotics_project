@@ -54,7 +54,6 @@ function [time_fine, joint_pos_interp, joint_vel_interp, eef_pos_interp, eef_qua
     end
 
     % Interpolazione quaternioni
-    eef_quat = fix_quaternion_signs(eef_quat);
     eef_quat_interp = zeros(length(time_fine),4);
     for i = 1:4
         eef_quat_interp(:,i) = interp1(time, eef_quat(:,i), time_fine, 'pchip');
