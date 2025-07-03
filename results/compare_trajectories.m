@@ -53,14 +53,10 @@ function [time_fine, joint_pos_interp, joint_vel_interp, eef_pos_interp, eef_qua
         eef_pos_interp(:,i) = interp1(time, eef_pos(:,i), time_fine, 'pchip');
     end
 
-    % Interpolazione quaternioni
     eef_quat_interp = zeros(length(time_fine),4);
     for i = 1:4
         eef_quat_interp(:,i) = interp1(time, eef_quat(:,i), time_fine, 'pchip');
     end
-    norms = sqrt(sum(eef_quat_interp.^2,2));
-    eef_quat_interp = eef_quat_interp ./ norms;
-
     eul_angles = quat2eul(eef_quat_interp, 'ZYX');
 end
 
