@@ -1,14 +1,6 @@
 clear all;
 close all;
 clc;
-function q_fixed = fix_quaternion_signs(q)
-    q_fixed = q;
-    for i = 2:size(q,1)
-        if dot(q_fixed(i-1,:), q_fixed(i,:)) < 0
-            q_fixed(i,:) = -q_fixed(i,:);
-        end
-    end
-end
 % === Parametri ===
 num_joints = 7;
 t_start = 1.3;  % tempo di inizio asse X per le posizioni giunti
