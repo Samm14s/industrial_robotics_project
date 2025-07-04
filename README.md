@@ -46,7 +46,7 @@ To be correctly executed the project requires:
 
 ## Installation and Build
 
-Clone repository in your ROS workspace which includes MoveIt:
+Clone repository in a ROS workspace which includes MoveIt:
 ```bash
 cd ~/"ROS-MOVEIT Workspace"/src
 git clone https://github.com/Samm14s/Industrial_Robotics_Project.git
@@ -59,11 +59,13 @@ source ~/"ROS-MOVEIT Workspace"/devel/setup.bash
 ```
 ## Execution
 
-After the installation and build you can execute in this order:
+After the installation and build execute in this order:
 
-To plan and simulate the trajectory:
 ```bash
 roslaunch panda_moveit_config demo_gazebo.launch
+```
+To plan and simulate the trajectory:
+```bash
 rosrun Industrial_Robotics_Project circle_motion
 ```
 To record data in a .bag file:
