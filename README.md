@@ -3,7 +3,7 @@
 
 ## Code Structure
 
-    📁 src/ — C++ nodes:
+    📁 src/ — C++ nodes and files:
 
         circle_motion.cpp
 
