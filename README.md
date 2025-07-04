@@ -50,7 +50,7 @@ To be correctly executed the project requires:
 
 Clone repository in your ROS workspace which includes MoveIt:
 ```bash
-cd ~/ws_moveit/src
+cd ~/"ROS-MOVEIT Workspace"/src
 git clone https://github.com/Samm14s/Industrial_Robotics_Project.git
 ```
 Compile and source:
