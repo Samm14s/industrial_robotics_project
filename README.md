@@ -71,6 +71,8 @@ rosrun Industrial_Robotics_Project circle_motion
 To record data in a .bag file:
 ```bash
 rosrun Industrial_Robotics_Project EE_Recorder_Node
+```
+```bash
 rosbag record -O executed.bag /joint_states_with_pose
 ```
 To convert data from .bag to .csv:
