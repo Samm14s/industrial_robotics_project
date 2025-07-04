@@ -12,16 +12,15 @@
 
 using namespace std;
 
-// Funzione per scalare tempi e velocità di una traiettoria
 void scaleTrajectorySpeed(moveit::planning_interface::MoveGroupInterface::Plan &plan, double scale){
   auto &traj = plan.trajectory_.joint_trajectory;
-  size_t n_joints = traj.joint_names.size();
+  size_t n_joints = traj.joint_names.size(); // #joints
   
   for(auto &pt : traj.points){
-    pt.time_from_start = ros::Duration(pt.time_from_start.toSec() / scale);
+    pt.time_from_start = ros::Duration(pt.time_from_start.toSec() / scale); // scale the time
     for(size_t j = 0; j < n_joints; ++j){
-      pt.velocities[j] /= scale;
-      if(pt.accelerations.size() > j) pt.accelerations[j] /= (scale * scale);
+      pt.velocities[j] /= scale; // scale the velocity
+      if(pt.accelerations.size() > j) pt.accelerations[j] /= (scale * scale); // scale the acceleration if present
     }
   }
 }
@@ -34,12 +33,11 @@ void appendTrajectory(moveit_msgs::RobotTrajectory& base_traj, const moveit_msgs
 
   ros::Duration last_time = base_traj.joint_trajectory.points.back().time_from_start;
   for(auto pt : new_traj.joint_trajectory.points){
-    pt.time_from_start += last_time;
+    pt.time_from_start += last_time;  //adjust the time values so that they continue from where the base_traj finishes
     base_traj.joint_trajectory.points.push_back(pt);
   }
 }
 
-// Funzione per salvare la traiettoria su file CSV
 void saveTrajectoryToCSV(const moveit_msgs::RobotTrajectory& trajectory, const moveit::planning_interface::MoveGroupInterface& move_group, ofstream& file, bool write_header = false){
   const robot_state::JointModelGroup* joint_group = move_group.getCurrentState()->getJointModelGroup("panda_arm");
   auto joint_names = move_group.getVariableNames();
