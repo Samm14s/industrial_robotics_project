@@ -1,6 +1,5 @@
-## Executing a Trajectory with the Franka Robot in Gazebo
-
-
+## Executing a Trajectory with the Franka Robot in Gazebo simulation environment
+---
 ## Code Structure
 
     📁 src/ — C++ nodes and files:
