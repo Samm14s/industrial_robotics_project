@@ -25,17 +25,17 @@
 ---
 ## Dipendencies
 
-To be executed the project requires:
+Project requirements:
 
     1) ROS Noetic with Packets: 
-        - roscpp, 
-        - std_msgs, 
-        - geometry_msgs, 
-        - sensor_msgs, 
-        - rosbag, 
-        - tf, 
-        - moveit_ros_planning_interface, 
-        - moveit_ros_planning, 
+        - roscpp 
+        - std_msgs 
+        - geometry_msgs 
+        - sensor_msgs 
+        - rosbag
+        - tf 
+        - moveit_ros_planning_interface 
+        - moveit_ros_planning 
         - message_generation
     2) MoveIt
     3) Gazebo 11
@@ -58,8 +58,7 @@ source ~/"ROS-MOVEIT Workspace"/devel/setup.bash
 ---
 ## Execution
 
-After the installation and build execute in this order:
-
+After the installation and build execute:
 ```bash
 roslaunch panda_moveit_config demo_gazebo.launch
 ```
@@ -67,10 +66,11 @@ To plan and simulate the trajectory:
 ```bash
 rosrun Industrial_Robotics_Project circle_motion
 ```
-To record data in a .bag file:
+To start the node necessary for recording data:
 ```bash
 rosrun Industrial_Robotics_Project EE_Recorder_Node
 ```
+To record in a .bag file
 ```bash
 rosbag record -O executed.bag /joint_states_with_pose
 ```
