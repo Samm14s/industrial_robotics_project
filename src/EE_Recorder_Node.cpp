@@ -10,7 +10,7 @@ class EERecorderNode{
  public:
  	EERecorderNode() : tfListener(tfBuffer){
  		jointSub = nh.subscribe("/joint_states", 10, &EERecorderNode::jointCallback, this);
-        	pub = nh.advertise<panda_motion_planning::JointStateWithPose>("/joint_states_with_pose", 10);
+        	pub = nh.advertise<Industrial_Robotics_Project::JointStateWithPose>("/joint_states_with_pose", 10);
     	}
 
  private:
@@ -32,7 +32,7 @@ class EERecorderNode{
         	}
 
         	// Crea messaggio da pubblicare
-        	panda_motion_planning::JointStateWithPose msg;
+        	Industrial_Robotics_Project::JointStateWithPose msg;
         	msg.header.stamp = jointMsg->header.stamp;
        	        msg.joint_state = *jointMsg;
 
