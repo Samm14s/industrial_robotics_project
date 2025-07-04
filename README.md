@@ -78,4 +78,4 @@ To convert data from .bag to .csv:
 rosrun Industrial_Robotics_Project rosbag_to_csv_executed executed.bag
 ```
 ## Data Analysis
-To plot and compare the 2 trajectories use run the file compare_trajectories.m in Matlab
+To plot and compare the 2 trajectories run the file compare_trajectories.m in Matlab
