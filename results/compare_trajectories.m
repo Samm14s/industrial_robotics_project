@@ -3,7 +3,7 @@ close all;
 clc;
 % === Parametri ===
 num_joints = 7;
-t_start = 2;  % tempo di inizio asse X per le posizioni giunti
+t_start = 0;  % tempo di inizio asse X per le posizioni giunti
 t_end = 7.5;    % tempo di fine asse X per le posizioni giunti
 % === Funzione di caricamento e interpolazione ===
 function [time_fine, joint_pos_interp, joint_vel_interp, eef_pos_interp, eef_quat_interp, eul_angles] = process_csv(filename, num_joints)
