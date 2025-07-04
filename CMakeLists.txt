@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(panda_motion_planning)
+project(Industrial_Robotics_Project)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -23,7 +23,6 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   JointStateWithPose.msg
-  TrajectoryPointStamped.msg
 )
 
 generate_messages(
