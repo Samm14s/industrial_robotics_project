@@ -45,7 +45,7 @@ int main(int argc, char** argv){
     
     double t_start = -1;
     for (const rosbag::MessageInstance& m : view){
-        panda_motion_planning::JointStateWithPose::ConstPtr msg = m.instantiate<panda_motion_planning::JointStateWithPose>();
+        Industrial_Robotics_Project::JointStateWithPose::ConstPtr msg = m.instantiate<Industrial_Robotics_Project::JointStateWithPose>();
         if (msg){
         	double t = msg->header.stamp.toSec();
         	if (t_start < 0) t_start = t;
