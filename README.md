@@ -66,14 +66,14 @@ After the installation and build you can execute in this order:
 To plan and simulate the trajectory:
 ```bash
 roslaunch panda_moveit_config demo_gazebo.launch
-rosrun panda_motion_planning circle_motion
+rosrun Industrial_Robotics_Project circle_motion
 ```
 To record data in a .bag file:
 ```bash
-rosrun panda_motion_planning EE_Recorder_Node
+rosrun Industrial_Robotics_Project EE_Recorder_Node
 rosbag record -O executed.bag /joint_states_with_pose
 ```
 To convert data from .bag to .csv:
 ```bash
-rosrun panda_motion_planning rosbag_to_csv_executed executed.bag
+rosrun Industrial_Robotics_Project rosbag_to_csv_executed executed.bag
 ```
