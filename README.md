@@ -1,7 +1,5 @@
 ## Executing a Trajectory with the Franka Robot in Gazebo
 
-The objective of this project is to make the Franka robot execute a pre-defined trajectory in the Gazebo simulation environment. The project involves creating the trajectory, executing it using ROS (Robot Operating System) with a suitable controller, collecting data from the robot's execution and analyzing the results by comparing the desired trajectory with the executed one.
-
 
 ## Code Structure
 
@@ -13,11 +11,11 @@ The objective of this project is to make the Franka robot execute a pre-defined 
 
         rosbag_to_csv_executed.cpp
 
-    📁 msg/ — Custom messages:
+    📁 msg/ — Custom message:
 
         JointStateWithPose.msg
 
-    📁 results/ — Data analysis and comparison:
+    📁 results/ — Data analysis:
 
         executed.csv   #simulation example
 
@@ -27,7 +25,7 @@ The objective of this project is to make the Franka robot execute a pre-defined 
 ---
 ## Dipendencies
 
-To be correctly executed the project requires:
+To be executed the project requires:
 
     1) ROS Noetic with Packets: 
         - roscpp, 
