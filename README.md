@@ -55,9 +55,9 @@ git clone https://github.com/Samm14s/Industrial_Robotics_Project.git
 ```
 Compile and source:
 ```bash
-cd ~/ws_moveit
+cd ~/"ROS-MOVEIT Workspace"
 catkin_make
-source ~/ws_moveit/devel/setup.bash
+source ~/"ROS-MOVEIT Workspace"/devel/setup.bash
 ```
 ## Execution
 
