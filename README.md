@@ -1,7 +1,6 @@
 ## Executing a Trajectory with the Franka Robot in Gazebo
 ---
 ## Code Structure
-
     📁 src/ — C++ nodes and files:
 
         circle_motion.cpp
@@ -23,7 +22,6 @@
         compare_trajectories.m 
 ---
 ## Dipendencies
-
 Project requirements:
 
     1) ROS Noetic with Packets: 
@@ -42,7 +40,6 @@ Project requirements:
 
 ---
 ## Installation and Build
-
 Clone repository in a ROS workspace which includes MoveIt:
 ```bash
 cd ~/"ROS-MOVEIT Workspace"/src
@@ -56,8 +53,7 @@ source ~/"ROS-MOVEIT Workspace"/devel/setup.bash
 ```
 ---
 ## Execution
-
-After the installation and build execute:
+After the installation and build run:
 ```bash
 roslaunch panda_moveit_config demo_gazebo.launch
 ```
@@ -65,18 +61,19 @@ To plan and simulate the trajectory:
 ```bash
 rosrun Industrial_Robotics_Project circle_motion
 ```
-To start the node necessary for recording data:
+To record the data 3 steps are necessary.
+First run:
 ```bash
 rosrun Industrial_Robotics_Project EE_Recorder_Node
 ```
-To record in a .bag file
+Then to record and store them in a .bag file
 ```bash
 rosbag record -O executed.bag /joint_states_with_pose
 ```
-To convert data from .bag to .csv:
+To convert .bag to .csv:
 ```bash
 rosrun Industrial_Robotics_Project rosbag_to_csv_executed executed.bag
 ```
 ---
 ## Data Analysis
-To plot and compare the 2 trajectories run the file compare_trajectories.m in Matlab
+To plot and compare the 2 trajectories run compare_trajectories.m in Matlab
