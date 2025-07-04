@@ -17,13 +17,11 @@ The objective of this project is to make the Franka robot execute a pre-defined 
 
         JointStateWithPose.msg
 
-        TrajectoryPointStamped.msg
-
     📁 results/ — Data analysis and comparison:
 
-        executed.csv
+        executed.csv   #simulation example
 
-        planned.csv
+        planned.csv    #simulation example
 
         compare_trajectories.m 
 ---
