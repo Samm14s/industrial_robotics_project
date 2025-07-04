@@ -41,7 +41,7 @@ To be executed the project requires:
     3) Gazebo 11
     4) Matlab 
 
-
+---
 ## Installation and Build
 
 Clone repository in a ROS workspace which includes MoveIt:
@@ -55,6 +55,7 @@ cd ~/"ROS-MOVEIT Workspace"
 catkin_make
 source ~/"ROS-MOVEIT Workspace"/devel/setup.bash
 ```
+---
 ## Execution
 
 After the installation and build execute in this order:
@@ -77,5 +78,6 @@ To convert data from .bag to .csv:
 ```bash
 rosrun Industrial_Robotics_Project rosbag_to_csv_executed executed.bag
 ```
+---
 ## Data Analysis
 To plot and compare the 2 trajectories run the file compare_trajectories.m in Matlab
