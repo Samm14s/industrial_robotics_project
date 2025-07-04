@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <rosbag/bag.h>
 #include <rosbag/view.h>
-#include <panda_motion_planning/JointStateWithPose.h>
+#include <Industrial_Robotics_Project/JointStateWithPose.h>
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -18,7 +18,7 @@ int main(int argc, char** argv){
     string bag_file = argv[1];
 
     // Default CSV filename
-    string output_file = ros::package::getPath("panda_motion_planning") + "/result/executed.csv";
+    string output_file = ros::package::getPath("Industrial_Robotics_Project") + "/results/executed.csv";
 
     rosbag::Bag bag;
     try{
