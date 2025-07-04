@@ -31,19 +31,19 @@ The objective of this project is to make the Franka robot execute a pre-defined 
 
 To be correctly executed the project requires:
 
-    - ROS Noetic with Packets: 
-        roscpp, 
-        std_msgs, 
-        geometry_msgs, 
-        sensor_msgs, 
-        rosbag, 
-        tf, 
-        moveit_ros_planning_interface, 
-        moveit_ros_planning, 
-        message_generation
-
-    - MoveIt
-    - Gazebo 11
+    1) ROS Noetic with Packets: 
+        - roscpp, 
+        - std_msgs, 
+        - geometry_msgs, 
+        - sensor_msgs, 
+        - rosbag, 
+        - tf, 
+        - moveit_ros_planning_interface, 
+        - moveit_ros_planning, 
+        - message_generation
+    2) MoveIt
+    3) Gazebo 11
+    4) Matlab 
 
 
 ## Installation and Build
@@ -77,3 +77,5 @@ To convert data from .bag to .csv:
 ```bash
 rosrun Industrial_Robotics_Project rosbag_to_csv_executed executed.bag
 ```
+## Data Analysis
+To plot and compare the 2 trajectories use run the file compare_trajectories.m in Matlab
