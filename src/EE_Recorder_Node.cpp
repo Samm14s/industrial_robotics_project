@@ -3,7 +3,7 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <tf2_ros/transform_listener.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
-#include <panda_motion_planning/JointStateWithPose.h> // crea questo messaggio custom
+#include <Industrial_Robotics_Project/JointStateWithPose.h> // create custom message
 
 
 class EERecorderNode{
@@ -34,16 +34,16 @@ class EERecorderNode{
         	// Crea messaggio da pubblicare
         	panda_motion_planning::JointStateWithPose msg;
         	msg.header.stamp = jointMsg->header.stamp;
-       	 msg.joint_state = *jointMsg;
+       	        msg.joint_state = *jointMsg;
 
         	// Copia la posa del end effector
         	msg.ee_pose.header = transformStamped.header;
         	msg.ee_pose.pose.position.x = transformStamped.transform.translation.x;
-       	msg.ee_pose.pose.position.y = transformStamped.transform.translation.y;
+       	        msg.ee_pose.pose.position.y = transformStamped.transform.translation.y;
     	        msg.ee_pose.pose.position.z = transformStamped.transform.translation.z;
      	        msg.ee_pose.pose.orientation = transformStamped.transform.rotation;
 
-       	pub.publish(msg);
+       	        pub.publish(msg);
         }
 };
 
