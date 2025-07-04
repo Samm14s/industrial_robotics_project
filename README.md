@@ -1,4 +1,4 @@
-## Executing a Trajectory with the Franka Robot in Gazebo simulation environment
+## Executing a Trajectory with the Franka Robot in Gazebo
 ---
 ## Code Structure
 
