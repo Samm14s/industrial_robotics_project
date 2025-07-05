@@ -28,12 +28,13 @@ Project requirements:
         - roscpp 
         - std_msgs 
         - geometry_msgs 
-        - sensor_msgs 
-        - rosbag
-        - tf 
         - moveit_ros_planning_interface 
-        - moveit_ros_planning 
+        - moveit_ros_planning
+        - rosbag 
+        - tf 
+        - sensor_msgs 
         - message_generation
+        -roslib
     2) MoveIt
     3) Gazebo 11
     4) Matlab 
