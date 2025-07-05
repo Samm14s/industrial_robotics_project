@@ -80,4 +80,4 @@ To plot and compare the 2 trajectories run
 ```bash
 compare_trajectories.m 
 ```
-in Matlab
+in Matlab.
