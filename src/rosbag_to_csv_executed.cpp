@@ -39,7 +39,7 @@ int main(int argc, char** argv){
 
     ofs << "time_from_start";
     for(int i = 1; i <= 7; ++i){
-    ofs << ",panda_joint" << i << "_pos,panda_joint" << i << "_vel";
+        ofs << ",panda_joint" << i << "_pos,panda_joint" << i << "_vel";
     }
     ofs << ",eef_pos_x,eef_pos_y,eef_pos_z,eef_orient_x,eef_orient_y,eef_orient_z,eef_orient_w\n";
     
@@ -47,26 +47,25 @@ int main(int argc, char** argv){
     for (const rosbag::MessageInstance& m : view){
         Industrial_Robotics_Project::JointStateWithPose::ConstPtr msg = m.instantiate<Industrial_Robotics_Project::JointStateWithPose>();
         if (msg){
-        	double t = msg->header.stamp.toSec();
-        	if (t_start < 0) t_start = t;
+            double t = msg->header.stamp.toSec();
+            if (t_start < 0) t_start = t;
         	
-        	double time_from_start = t - t_start;
-	        ofs << time_from_start;
-        	if (msg->joint_state.position.size() >= 7 && msg->joint_state.velocity.size() >= 7) {
-                	for (int i = 0; i < 7; ++i) {
-               		ofs << "," << msg->joint_state.position[i] << "," << msg->joint_state.velocity[i];
-                       }
-            	} else {
-              		for (int i = 0; i < 7; ++i) ofs << ",0,0";
-            	}		
-                ofs << "," << msg->ee_pose.pose.position.x << "," << msg->ee_pose.pose.position.y << "," << msg->ee_pose.pose.position.z;
-                ofs << "," << msg->ee_pose.pose.orientation.x << "," << msg->ee_pose.pose.orientation.y << "," << msg->ee_pose.pose.orientation.z << "," << msg->ee_pose.pose.orientation.w << "\n";
+            double time_from_start = t - t_start;
+	    ofs << time_from_start;
+	    if (msg->joint_state.position.size() >= 7 && msg->joint_state.velocity.size() >= 7) {
+                for (int i = 0; i < 7; ++i) {
+               	    ofs << "," << msg->joint_state.position[i] << "," << msg->joint_state.velocity[i];
+                }
+            } else {
+              	for (int i = 0; i < 7; ++i) ofs << ",0,0";
+            }		
+            ofs << "," << msg->ee_pose.pose.position.x << "," << msg->ee_pose.pose.position.y << "," << msg->ee_pose.pose.position.z;
+            ofs << "," << msg->ee_pose.pose.orientation.x << "," << msg->ee_pose.pose.orientation.y << "," << msg->ee_pose.pose.orientation.z << "," << msg->ee_pose.pose.orientation.w << "\n";
         }
     }
-    
+	
     ofs.close();
     bag.close();
     cout << "CSV file saved: " << output_file << endl;
     return 0;
 }
-
