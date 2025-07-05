@@ -62,12 +62,11 @@ To plan and simulate the trajectory:
 ```bash
 rosrun Industrial_Robotics_Project circle_motion
 ```
-To record the data 3 steps are necessary.
-First run:
+To record the data first run:
 ```bash
 rosrun Industrial_Robotics_Project EE_Recorder_Node
 ```
-Then to record and store them in a .bag file
+Then to write down and store them in a .bag file:
 ```bash
 rosbag record -O executed.bag /joint_states_with_pose
 ```
