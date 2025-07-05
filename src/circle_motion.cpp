@@ -82,18 +82,17 @@ int main(int argc, char** argv){
   spinner.start();
 
   moveit::planning_interface::MoveGroupInterface move_group("panda_arm");
-  //ROS_INFO_STREAM("End effector link: " << move_group.getEndEffectorLink());
   double r = 0.1;
   double speed_factor = 1;
-  int n_points = 100;
+  int n_points = 500;
   const double eef_step = 0.01;
 
   ros::Duration(1.0).sleep();
 
   geometry_msgs::Pose start_pose = move_group.getCurrentPose().pose;
-  ROS_INFO("Home: [%.3f, %.3f, %.3f]", start_pose.position.x, start_pose.position.y, start_pose.position.z);
+  ROS_INFO("Home position: [%.3f, %.3f, %.3f]", start_pose.position.x, start_pose.position.y, start_pose.position.z);
 
-  // Waypoints circolari
+  // Build the circumference
   vector<geometry_msgs::Pose> waypoints;
   for(int i = 0; i <= n_points; ++i){
     double theta = 2 * M_PI * i / n_points;
@@ -103,7 +102,7 @@ int main(int argc, char** argv){
     waypoints.push_back(p);
   }
 
-  // Pianifica traiettoria circolare
+  // Plan circular trajectory
   moveit_msgs::RobotTrajectory circ_traj;
   double fraction = move_group.computeCartesianPath(waypoints, eef_step, circ_traj);
   ROS_INFO("Circular path planned: %.2f%%", fraction * 100.0);
@@ -118,26 +117,25 @@ int main(int argc, char** argv){
 
 
   if(fraction > 0.9){
-    // Crea plan traiettoria circolare
     moveit::planning_interface::MoveGroupInterface::Plan plan_circ;
     plan_circ.trajectory_ = circ_traj;
     scaleTrajectorySpeed(plan_circ, speed_factor);
 
-    //Inizializza total_trajectory 
+    //Initialize total_trajectory 
     moveit_msgs::RobotTrajectory total_traj = plan_circ.trajectory_;
     
-    // Esegue traiettoria circolare
+    // Execute circular trajectory
     move_group.execute(plan_circ);
     move_group.setStartStateToCurrentState();
 
-    // Pianifica ritorno a home
+    // Plan comeback home
     vector<geometry_msgs::Pose> home_waypoints;
     home_waypoints.push_back(start_pose);
     moveit_msgs::RobotTrajectory home_traj;
     double home_fraction = move_group.computeCartesianPath(home_waypoints, eef_step, home_traj);
 
     if (home_fraction > 0.9){
-      //Crea plan e esegue ritorno a home
+      //Execute comeback home
       moveit::planning_interface::MoveGroupInterface::Plan plan_home;
       plan_home.trajectory_ = home_traj;
       scaleTrajectorySpeed(plan_home, speed_factor);
@@ -146,7 +144,7 @@ int main(int argc, char** argv){
     } else {
       ROS_WARN("Return to home path planning failed.");
     }
-    //Scrive il CSV completo
+    //Write CSV file
     saveTrajectoryToCSV(total_traj, move_group, csv_file, true);
   } else {
     ROS_WARN("Circular path planning failed.");
