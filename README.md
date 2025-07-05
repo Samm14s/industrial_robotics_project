@@ -34,7 +34,7 @@ Project requirements:
         - tf 
         - sensor_msgs 
         - message_generation
-        -roslib
+        - roslib
     2) MoveIt
     3) Gazebo 11
     4) Matlab 
