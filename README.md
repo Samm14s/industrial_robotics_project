@@ -76,4 +76,8 @@ rosrun Industrial_Robotics_Project rosbag_to_csv_executed executed.bag
 ```
 ---
 ## Data Analysis
-To plot and compare the 2 trajectories run compare_trajectories.m in Matlab
+To plot and compare the 2 trajectories run 
+```bash
+compare_trajectories.m 
+```
+in Matlab
