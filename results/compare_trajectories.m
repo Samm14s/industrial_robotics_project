@@ -1,17 +1,15 @@
 clear all;
 close all;
 clc;
-% === Parametri ===
+
 num_joints = 7;
-t_start = 0;  % tempo di inizio asse X per le posizioni giunti
-t_end = 7.5;    % tempo di fine asse X per le posizioni giunti
-% === Funzione di caricamento e interpolazione ===
+t_start = 0;  % start-time X axis 
+t_end = 7;    % end-time X axis
+
 function [time_fine, joint_pos_interp, joint_vel_interp, eef_pos_interp, eef_quat_interp, eul_angles] = process_csv(filename, num_joints)
-    % Leggi CSV
     data = readmatrix(filename);
     time = data(:,1);
 
-    % Estrai posizioni e velocità giunti
     joint_pos = zeros(length(time), num_joints);
     joint_vel = zeros(length(time), num_joints);
     for j = 1:num_joints
@@ -19,12 +17,11 @@ function [time_fine, joint_pos_interp, joint_vel_interp, eef_pos_interp, eef_qua
         joint_vel(:,j) = data(:, 2*(j-1)+3);
     end
 
-    % Posizione e quaternione end-effector
     idx_eef_pos_start = 2*num_joints + 2;
     eef_pos = data(:, idx_eef_pos_start : idx_eef_pos_start+2);
     eef_quat = data(:, idx_eef_pos_start+3 : idx_eef_pos_start+6);
 
-    % Pulisci timestamp
+    % Clean timestamp
     [time_sorted, ia, ~] = unique(time, 'stable');
     if length(time_sorted) < length(time)
         warning('Timestamps duplicati trovati e rimossi.');
@@ -38,7 +35,7 @@ function [time_fine, joint_pos_interp, joint_vel_interp, eef_pos_interp, eef_qua
         error('Errore: il vettore time deve essere strettamente crescente.');
     end
 
-    % Interpolazione
+    % Interpolation
     time_fine = linspace(time(1), time(end), 1000)';
 
     joint_pos_interp = zeros(length(time_fine), num_joints);
@@ -60,14 +57,10 @@ function [time_fine, joint_pos_interp, joint_vel_interp, eef_pos_interp, eef_qua
     eul_angles = quat2eul(eef_quat_interp, 'ZYX');
 end
 
-% === Processa desired.csv ===
 [time_fine_des, joint_pos_des, joint_vel_des, eef_pos_des, quat_des, eul_des] = process_csv('desired.csv', num_joints);
-% === Processa executed.csv ===
 [time_fine_exe, joint_pos_exe, joint_vel_exe, eef_pos_exe, quat_exe, eul_exe] = process_csv('executed.csv', num_joints);
 
-% === Plot desired ===
 figure('Name','Joint Positions Comparison');
-
 subplot(2,1,1);
 plot(time_fine_des, joint_pos_des);
 title('PLANNED Joint Positions');
@@ -75,30 +68,29 @@ xlabel('Time [s]');
 ylabel('Position [rad]');
 xlim([0 time_fine_des(end)]);
 legend(arrayfun(@(j) sprintf('Joint %d', j), 1:num_joints, 'UniformOutput', false));
-
 subplot(2,1,2);
 plot(time_fine_exe, joint_pos_exe);
 title('EXECUTED Joint Positions');
 xlabel('Time [s]');
 ylabel('Position [rad]');
-xlim([t_start t_end]);
-figure('Name','Joint Velocities Comparison');
+xlim([t_start t_end]); 
 
+figure('Name','Joint Velocities Comparison');
 subplot(2,1,1);
 plot(time_fine_des, joint_vel_des);
 title('PLANNED Joint Velocities');
 xlabel('Time [s]');
 ylabel('Velocity [rad/s]');
 xlim([0 time_fine_des(end)]);
-
+legend(arrayfun(@(j) sprintf('Joint %d', j), 1:num_joints, 'UniformOutput', false));
 subplot(2,1,2);
 plot(time_fine_exe, joint_vel_exe);
 title('EXECUTED Joint Velocities');
 xlabel('Time [s]');
 ylabel('Velocity [rad/s]');
 xlim([t_start t_end]);
-figure('Name','End-Effector Position Comparison');
 
+figure('Name','End-Effector Position Comparison');
 subplot(2,1,1);
 plot(time_fine_des, eef_pos_des);
 title('PLANNED End-Effector Position');
@@ -106,16 +98,14 @@ xlabel('Time [s]');
 ylabel('Position [m]');
 legend({'X','Y','Z'});
 xlim([0 time_fine_des(end)]);
-
 subplot(2,1,2);
 plot(time_fine_exe, eef_pos_exe);
 title('EXECUTED End-Effector Position');
 xlabel('Time [s]');
 ylabel('Position [m]');
-legend({'X','Y','Z'});
 xlim([t_start t_end]);
-figure('Name','End-Effector Orientation Comparison');
 
+figure('Name','End-Effector Orientation Comparison');
 subplot(2,1,1);
 plot(time_fine_des, rad2deg(eul_des));
 title('PLANNED End-Effector Orientation (Euler ZYX)');
@@ -123,11 +113,9 @@ xlabel('Time [s]');
 ylabel('Degrees');
 legend({'Yaw (Z)','Pitch (Y)','Roll (X)'});
 xlim([0 time_fine_des(end)]);
-
 subplot(2,1,2);
 plot(time_fine_exe, rad2deg(eul_exe));
 title('EXECUTED End-Effector Orientation (Euler ZYX)');
 xlabel('Time [s]');
 ylabel('Degrees');
-legend({'Yaw (Z)','Pitch (Y)','Roll (X)'});
 xlim([t_start t_end]);
