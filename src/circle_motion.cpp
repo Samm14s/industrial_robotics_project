@@ -69,6 +69,7 @@ int main(int argc, char** argv){
   spinner.start();
 
   moveit::planning_interface::MoveGroupInterface move_group("panda_arm");
+  move_group.setMaxVelocityScalingFactor(1);
   double r = 0.1;
   int n_points = 500;
   const double eef_step = 0.01;
