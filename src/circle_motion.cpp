@@ -12,19 +12,6 @@
 
 using namespace std;
 
-void scaleTrajectorySpeed(moveit::planning_interface::MoveGroupInterface::Plan &plan, double scale){
-  auto &traj = plan.trajectory_.joint_trajectory;
-  size_t n_joints = traj.joint_names.size(); // #joints
-  
-  for(auto &pt : traj.points){
-    pt.time_from_start = ros::Duration(pt.time_from_start.toSec() / scale); // scale the time
-    for(size_t j = 0; j < n_joints; ++j){
-      pt.velocities[j] /= scale; // scale the velocity
-      if(pt.accelerations.size() > j) pt.accelerations[j] /= (scale * scale); // scale the acceleration if present
-    }
-  }
-}
-
 void appendTrajectory(moveit_msgs::RobotTrajectory& base_traj, const moveit_msgs::RobotTrajectory& new_traj){
   if(base_traj.joint_trajectory.points.empty()){
     base_traj = new_traj;
@@ -83,7 +70,6 @@ int main(int argc, char** argv){
 
   moveit::planning_interface::MoveGroupInterface move_group("panda_arm");
   double r = 0.1;
-  double speed_factor = 1;
   int n_points = 500;
   const double eef_step = 0.01;
 
@@ -119,7 +105,6 @@ int main(int argc, char** argv){
   if(fraction > 0.9){
     moveit::planning_interface::MoveGroupInterface::Plan plan_circ;
     plan_circ.trajectory_ = circ_traj;
-    scaleTrajectorySpeed(plan_circ, speed_factor);
 
     //Initialize total_trajectory 
     moveit_msgs::RobotTrajectory total_traj = plan_circ.trajectory_;
@@ -138,7 +123,6 @@ int main(int argc, char** argv){
       //Execute comeback home
       moveit::planning_interface::MoveGroupInterface::Plan plan_home;
       plan_home.trajectory_ = home_traj;
-      scaleTrajectorySpeed(plan_home, speed_factor);
       appendTrajectory(total_traj, plan_home.trajectory_);
       move_group.execute(plan_home);
     } else {
