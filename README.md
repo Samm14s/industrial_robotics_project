@@ -17,7 +17,7 @@
 
         executed.csv   #simulation example
 
-        planned.csv    #simulation example
+        executed.csv    #simulation example
 
         compare_trajectories.m 
 ---
