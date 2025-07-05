@@ -23,7 +23,6 @@ class EERecorderNode{
     	void jointCallback(const sensor_msgs::JointState::ConstPtr& jointMsg){
 		geometry_msgs::TransformStamped transformStamped;
 		try{
-            		// Prendi trasformazione dal base_link0 all'end effector
             		transformStamped = tfBuffer.lookupTransform("panda_link0", "panda_link8", ros::Time(0), ros::Duration(0.1));
         	}
         	catch (tf2::TransformException &ex){
@@ -31,12 +30,12 @@ class EERecorderNode{
             		return;
         	}
 
-        	// Crea messaggio da pubblicare
+        	// Custom message
         	Industrial_Robotics_Project::JointStateWithPose msg;
         	msg.header.stamp = jointMsg->header.stamp;
        	        msg.joint_state = *jointMsg;
 
-        	// Copia la posa del end effector
+        	// Copy end-effector pose
         	msg.ee_pose.header = transformStamped.header;
         	msg.ee_pose.pose.position.x = transformStamped.transform.translation.x;
        	        msg.ee_pose.pose.position.y = transformStamped.transform.translation.y;
