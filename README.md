@@ -66,7 +66,7 @@ To record the data first run:
 ```bash
 rosrun Industrial_Robotics_Project EE_Recorder_Node
 ```
-Then to write down and store them in a .bag file:
+Then to store them in a .bag file:
 ```bash
 rosbag record -O executed.bag /joint_states_with_pose
 ```
