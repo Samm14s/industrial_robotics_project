@@ -41,7 +41,7 @@ Project requirements:
 
 ---
 ## Installation and Build
-Clone repository in a ROS workspace which includes MoveIt ("ROS-MOVEIT Workspace"):
+Clone the repository in a ROS workspace which includes MoveIt ("ROS-MOVEIT Workspace"):
 ```bash
 cd ~/"ROS-MOVEIT Workspace"/src
 git clone https://github.com/Samm14s/Industrial_Robotics_Project.git
