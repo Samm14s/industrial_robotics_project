@@ -1,4 +1,4 @@
-## Executing and simulating a Circumference in the XZ-plane with the Franka Robot in Gazebo
+## Executing a Circumference in the XZ-plane with the Franka Robot in Gazebo
 ---
 ## Code Structure
     📁 src/ — C++ nodes and files:
