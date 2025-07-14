@@ -1,7 +1,7 @@
-## Executing a Circumference in the XZ-plane with the Franka Robot in Gazebo
+## Executing a Circumference with the Franka Robot in Gazebo
 ---
 ## Code Structure
-    📁 src/ — C++ nodes and files:
+     src/ — C++ nodes and files:
 
         circle_motion.cpp
 
@@ -9,11 +9,11 @@
 
         rosbag_to_csv_executed.cpp
 
-    📁 msg/ — Custom message:
+     msg/ — Custom message:
 
         JointStateWithPose.msg
 
-    📁 results/ — Data analysis:
+     results/ — Data analysis:
 
         executed.csv   #simulation example
 
