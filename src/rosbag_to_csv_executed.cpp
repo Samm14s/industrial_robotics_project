@@ -17,7 +17,6 @@ int main(int argc, char** argv){
 
     string bag_file = argv[1];
 
-    // Default CSV filename
     string output_file = ros::package::getPath("Industrial_Robotics_Project") + "/results/executed.csv";
 
     rosbag::Bag bag;
