@@ -44,7 +44,7 @@ Project requirements:
 Clone the repository in a ROS workspace which includes MoveIt ("ROS-MOVEIT Workspace"):
 ```bash
 cd ~/"ROS-MOVEIT Workspace"/src
-git clone https://github.com/Samm14s/Industrial_Robotics_Project.git
+git clone https://github.com/Samm14s/industrial_robotics_project.git
 ```
 Compile and source:
 ```bash
@@ -60,11 +60,11 @@ roslaunch panda_moveit_config demo_gazebo.launch
 ```
 To plan and simulate the trajectory:
 ```bash
-rosrun Industrial_Robotics_Project circle_motion
+rosrun industrial_robotics_project circle_motion
 ```
 To record the data first run:
 ```bash
-rosrun Industrial_Robotics_Project EE_Recorder_Node
+rosrun industrial_robotics_project EE_Recorder_Node
 ```
 Then to store them in a .bag file:
 ```bash
@@ -72,7 +72,7 @@ rosbag record -O executed.bag /joint_states_with_pose
 ```
 To convert .bag to .csv:
 ```bash
-rosrun Industrial_Robotics_Project rosbag_to_csv_executed executed.bag
+rosrun industrial_robotics_project rosbag_to_csv_executed executed.bag
 ```
 ---
 ## Data Analysis
