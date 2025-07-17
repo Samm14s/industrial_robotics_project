@@ -8,42 +8,42 @@
 
 class EERecorderNode{
  public:
- 	EERecorderNode() : tfListener(tfBuffer){
- 		jointSub = nh.subscribe("/joint_states", 10, &EERecorderNode::jointCallback, this);
-        	pub = nh.advertise<Industrial_Robotics_Project::JointStateWithPose>("/joint_states_with_pose", 10);
-    	}
+     EERecorderNode() : tfListener(tfBuffer){
+         jointSub = nh.subscribe("/joint_states", 10, &EERecorderNode::jointCallback, this);
+         pub = nh.advertise<Industrial_Robotics_Project::JointStateWithPose>("/joint_states_with_pose", 10);
+     }
 
  private:
- 	ros::NodeHandle nh;
- 	ros::Subscriber jointSub;
- 	ros::Publisher pub;
- 	tf2_ros::Buffer tfBuffer;
- 	tf2_ros::TransformListener tfListener;
+     ros::NodeHandle nh;
+     ros::Subscriber jointSub;
+     ros::Publisher pub;
+     tf2_ros::Buffer tfBuffer;
+     tf2_ros::TransformListener tfListener;
  	
-    	void jointCallback(const sensor_msgs::JointState::ConstPtr& jointMsg){
-		geometry_msgs::TransformStamped transformStamped;
-		try{
-            		transformStamped = tfBuffer.lookupTransform("panda_link0", "panda_link8", ros::Time(0), ros::Duration(0.1));
-        	}
-        	catch (tf2::TransformException &ex){
-            		ROS_WARN("Could not get transform: %s", ex.what());
-            		return;
-        	}
+     void jointCallback(const sensor_msgs::JointState::ConstPtr& jointMsg){
+         geometry_msgs::TransformStamped transformStamped;
+	 try{
+             transformStamped = tfBuffer.lookupTransform("panda_link0", "panda_link8", ros::Time(0), ros::Duration(0.1));
+         }
+         catch (tf2::TransformException &ex){
+             ROS_WARN("Could not get transform: %s", ex.what());
+             return;
+         }
 
-        	// Custom message
-        	Industrial_Robotics_Project::JointStateWithPose msg;
-        	msg.header.stamp = jointMsg->header.stamp;
-       	        msg.joint_state = *jointMsg;
+         // Custom message
+         Industrial_Robotics_Project::JointStateWithPose msg;
+         msg.header.stamp = jointMsg->header.stamp;
+       	 msg.joint_state = *jointMsg;
 
-        	// Copy end-effector pose
-        	msg.ee_pose.header = transformStamped.header;
-        	msg.ee_pose.pose.position.x = transformStamped.transform.translation.x;
-       	        msg.ee_pose.pose.position.y = transformStamped.transform.translation.y;
-    	        msg.ee_pose.pose.position.z = transformStamped.transform.translation.z;
-     	        msg.ee_pose.pose.orientation = transformStamped.transform.rotation;
+         // Copy end-effector pose
+	 msg.ee_pose.header = transformStamped.header;
+	 msg.ee_pose.pose.position.x = transformStamped.transform.translation.x;
+       	 msg.ee_pose.pose.position.y = transformStamped.transform.translation.y;
+    	 msg.ee_pose.pose.position.z = transformStamped.transform.translation.z;
+     	 msg.ee_pose.pose.orientation = transformStamped.transform.rotation;
 
-       	        pub.publish(msg);
-        }
+       	 pub.publish(msg);
+      }
 };
 
 int main(int argc, char** argv){
