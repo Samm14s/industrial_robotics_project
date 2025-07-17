@@ -63,7 +63,7 @@ void saveTrajectoryToCSV(const moveit_msgs::RobotTrajectory& trajectory, const m
 }
 
 int main(int argc, char** argv){
-  ros::init(argc, argv, "Industrial_Robotics_Project");
+  ros::init(argc, argv, "industrial_robotics_project");
   ros::NodeHandle nh;
   ros::AsyncSpinner spinner(1);
   spinner.start();
@@ -94,7 +94,7 @@ int main(int argc, char** argv){
   double fraction = move_group.computeCartesianPath(waypoints, eef_step, circ_traj);
   ROS_INFO("Circular path planned: %.2f%%", fraction * 100.0);
 
-  string path = ros::package::getPath("Industrial_Robotics_Project") + "/results/desired.csv";
+  string path = ros::package::getPath("industrial_robotics_project") + "/results/desired.csv";
   ROS_INFO_STREAM("Scrivo il CSV in: " << path);  
   ofstream csv_file(path);
   if(!csv_file.is_open()){
