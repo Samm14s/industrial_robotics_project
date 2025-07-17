@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <rosbag/bag.h>
 #include <rosbag/view.h>
-#include <Industrial_Robotics_Project/JointStateWithPose.h>
+#include <industrial_robotics_project/JointStateWithPose.h>
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -17,7 +17,7 @@ int main(int argc, char** argv){
 
     string bag_file = argv[1];
 
-    string output_file = ros::package::getPath("Industrial_Robotics_Project") + "/results/executed.csv";
+    string output_file = ros::package::getPath("industrial_robotics_project") + "/results/executed.csv";
 
     rosbag::Bag bag;
     try{
@@ -44,7 +44,7 @@ int main(int argc, char** argv){
     
     double t_start = -1;
     for (const rosbag::MessageInstance& m : view){
-        Industrial_Robotics_Project::JointStateWithPose::ConstPtr msg = m.instantiate<Industrial_Robotics_Project::JointStateWithPose>();
+        industrial_robotics_project::JointStateWithPose::ConstPtr msg = m.instantiate<industrial_robotics_project::JointStateWithPose>();
         if (msg){
             double t = msg->header.stamp.toSec();
             if (t_start < 0) t_start = t;
