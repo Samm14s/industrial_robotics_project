@@ -3,14 +3,14 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <tf2_ros/transform_listener.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
-#include <Industrial_Robotics_Project/JointStateWithPose.h> // create custom message
+#include <industrial_robotics_project/JointStateWithPose.h> // create custom message
 
 
 class EERecorderNode{
  public:
      EERecorderNode() : tfListener(tfBuffer){
          jointSub = nh.subscribe("/joint_states", 10, &EERecorderNode::jointCallback, this);
-         pub = nh.advertise<Industrial_Robotics_Project::JointStateWithPose>("/joint_states_with_pose", 10);
+         pub = nh.advertise<industrial_robotics_project::JointStateWithPose>("/joint_states_with_pose", 10);
      }
 
  private:
@@ -31,7 +31,7 @@ class EERecorderNode{
          }
 
          // Custom message
-         Industrial_Robotics_Project::JointStateWithPose msg;
+         industrial_robotics_project::JointStateWithPose msg;
          msg.header.stamp = jointMsg->header.stamp;
        	 msg.joint_state = *jointMsg;
 
